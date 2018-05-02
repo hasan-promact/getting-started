@@ -9,10 +9,15 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var uncss = require('gulp-uncss');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
     .pipe(sass())
+	
+        .pipe(uncss({
+            html: ['app/*.html']
+        }))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
