@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+html, body {
+  height: 100%;
+  font-family: 'Lato', sans-serif; }
+
+.navbar-brand > img {
+  width: 150px; }
+
+.navbar.navbar-default {
+  border: none;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  border-radius: 0;
+  z-index: 999; }
+
+.main-banner {
+  position: relative;
+  height: 100%;
+  background: url(../images/low_poly_background.jpg) no-repeat center center; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff; }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  background: none;
+  color: #fff;
+  border-bottom: 1px solid #FBC213; }
+
+.banner-content {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  text-align: center; }
+
+.banner-content h1 {
+  color: #fff; }
+
+.banner-content h1 span {
+  color: #FBC213; }
