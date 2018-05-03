@@ -39,7 +39,7 @@ gulp.task('useref', function(){
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
-    .pipe(gulpIf('*.css', uncss({html: ['app/*.html']})))
+    //.pipe(gulpIf('*.css', uncss({html: ['http://localhost:3000/']})))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
