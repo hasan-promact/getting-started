@@ -14,10 +14,6 @@ var uncss = require('gulp-uncss');
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
     .pipe(sass())
-	
-        .pipe(uncss({
-            html: ['app/*.html']
-        }))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
@@ -43,11 +39,12 @@ gulp.task('useref', function(){
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', uncss({html: ['app/*.html']})))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
 gulp.task('imagemin', function(){
-   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
+   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
   // Caching images that ran through imagemin
   .pipe(cache(imagemin({
       interlaced: true
